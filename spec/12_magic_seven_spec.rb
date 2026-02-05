@@ -70,14 +70,37 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    context 'when the previous step is 8' do
+      it 'returns 4' do
+        previous_steps = 8 # Arrange
+        results = game.subtract_four(previous_steps) # Act
+        expect(results).to eq(4)
+      end
+    end
   end
 
   describe '#divide_by_two' do
+    context 'when the previous step is 8' do
+      it 'returns 4' do
+        previous_stepss = 8 # Arrange
+        resultss = game.divide_by_two(previous_stepss) # Act
+        expect(resultss).to eq(4)
+      end
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
   describe '#subtract_random_number' do
+    context 'when the previous step is 200 and random number is 109' do
+      subject(:game_hundred_and_nine) { described_class.new(109) }
+
+      it 'returns 91' do
+        previous_step = 200
+        result = game_hundred_and_nine.subtract_random_number(previous_step)
+        expect(result).to eq(91)
+      end
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
@@ -85,19 +108,28 @@ describe MagicSeven do
   describe '#play' do
     context 'when the random number is ...' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      subject(:game_low) { described_class.new(7) }
+      it 'will return 7' do
+        result = game_low.play
+        expect(result).to eq(7)
       end
     end
 
     context 'when the random number is ...' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      subject(:game_medium) { described_class.new(10_000) }
+      it 'will return 7' do
+        result = game_medium.play
+        expect(result).to eq(7)
       end
     end
 
     context 'when the random number is ...' do
       # remove the 'x' before running this test
-      xit 'will return 7' do
+      subject(:game_high) { described_class.new(1_231_234_324) }
+      it 'will return 7' do
+        result = game_high.play
+        expect(result).to eq(7)
       end
     end
   end
